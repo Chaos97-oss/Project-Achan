@@ -1,8 +1,14 @@
 import express from 'express';
 import connectDB from './config/db.js';
-
+import signUp from './controller/userController.js';
 connectDB(); //database config
 const app = express();
+
+// Middleware to parse JSON
+app.use(express.json());
+
+app.post('/api/signUp', signUp)
+
 
 
 

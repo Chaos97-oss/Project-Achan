@@ -34,8 +34,11 @@ const userSchema = new mongoose.Schema({
   },
   passwordResetToken: String,
   passwordResetExpire: Date,
-  
-});
+ },
+  {
+    timestamps: true, //Created & Updated would be recorded with this  
+  } 
+);
 
 // Hash password before saving
 userSchema.pre('save', async function (next) {

@@ -1,14 +1,14 @@
 import User from "../models/user.js";
-
+import mongoose from "mongoose";
 const signUp = async (req, res) => {
 	try {
-		const { firstName, lastName, email, password, isAdmin } = req.body;
+		const { firstName, lastName, email, phone, password, isAdmin } = req.body;
 
-		if (!firstName || !lastName || !email || !password) {
-			return res.status(400).json({ 
-				message: "Please provide all required fields", 
-			});
-		}
+		if (!firstName || !lastName || !email || !phone || !password) {
+  return res.status(400).json({ 
+    message: "Please provide all required fields", 
+  });
+}
 		if (isAdmin && (!req.user || !req.user.isAdmin)) {
 			return res.status(403).json({ message: "Only admins can create another admin" });
 		}		
@@ -27,7 +27,8 @@ const signUp = async (req, res) => {
   firstName,
   lastName,
   email,
-  password, // No need to hash manually
+	phone,
+  password,
   isAdmin: isAdmin || false,
 });
 res.status(201).json({
@@ -37,11 +38,18 @@ res.status(201).json({
         firstName: newUser.firstName,
         lastName: newUser.lastName,
         email: newUser.email,
+				phone: newUser.phone,
       },
     });
 
-  } catch (error) {
-    console.error(error);
+   } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      // Handle Mongoose validation errors
+      const messages = Object.values(error.errors).map((err) => err.message);
+      return res.status(400).json({ message: messages.join(", ") });
+    }
+
+    console.error("Server Error:", error);
     res.status(500).json({ message: "Server error" });
   }
 };

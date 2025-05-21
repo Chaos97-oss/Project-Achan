@@ -36,12 +36,12 @@ const signUp = async (req, res) => {
 try{
 await sendEmail({
   to: newUser.email,
-  subject: "✨ Welcome to [Achan's!] - Your Beauty Journey Begins!",
+  subject: "✨ Welcome to Kellsonthebeat💄💅🏼💋 - Your Beauty Journey Begins!",
   html: `
     <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #555;">
       <div style="background-color: #faf3f3; padding: 30px; border-radius: 10px;">
         <div style="text-align: center; margin-bottom: 25px;">
-          <h1 style="color: #d4a1a7; font-size: 28px; margin-bottom: 5px;">Welcome to [Achan's]!</h1>
+          <h1 style="color: #d4a1a7; font-size: 28px; margin-bottom: 5px;">Welcome to Kellsonthebeat💄💅🏼💋!</h1>
           <p style="font-size: 16px; color: #888;">Where beauty meets perfection</p>
         </div>
         
@@ -59,28 +59,28 @@ await sendEmail({
           </ul>
           
           <div style="text-align: center; margin: 25px 0;">
-            <a href="[Your Booking URL]" style="background-color: #d4a1a7; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">Book Your First Appointment</a>
+            <a href="https://www.instagram.com/kellsonthebeat_/" style="background-color: #d4a1a7; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">Book Your First Appointment</a>
           </div>
           
           <p style="font-size: 16px; line-height: 1.6;">We can't wait to help you look and feel your most beautiful self!</p>
           
           <p style="font-size: 16px; line-height: 1.6;">With love,<br/>
-          <strong>The [Your Beauty Shop Name] Team</strong> 💖</p>
+          <strong>The Kellsonthebeat💄💅🏼💋 Team</strong> 💖</p>
         </div>
         
         <div style="text-align: center; font-size: 12px; color: #999; padding-top: 20px; border-top: 1px solid #eee;">
           <p>Follow us for beauty tips and promotions:</p>
           <p>
-            <a href="[https://www.instagram.com/kellsonthebeat_/]" style="color: #d4a1a7; text-decoration: none; margin: 0 5px;">Instagram</a> | 
+            <a href="https://www.instagram.com/kellsonthebeat_/" style="color: #d4a1a7; text-decoration: none; margin: 0 5px;">Instagram</a> | 
             <a href="[Facebook URL]" style="color: #d4a1a7; text-decoration: none; margin: 0 5px;">Facebook</a> | 
             <a href="[Website URL]" style="color: #d4a1a7; text-decoration: none; margin: 0 5px;">Website</a>
           </p>
-          <p>[Available On Demand(Chicago only)] | [+1630943-3195]</p>
+          <p>[Available On Demand (Chicago only)] | [ +16309433195 ]</p>
         </div>
       </div>
     </div>
-  `
-  });
+  `});
+  
 } catch (emailError) {
   console.error("Failed to send welcome email:", emailError.message);
   // Optional: continue registration even if email fails

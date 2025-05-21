@@ -1,6 +1,6 @@
-import User from "../models/user.js";
+import User from "../../models/user.js";
 import mongoose from "mongoose";
-import sendEmail from "../utils/sendEmail.js";
+import sendEmail from "../../utils/sendEmail.js";
 const signUp = async (req, res) => {
 	try {
 		const { firstName, lastName, email, phone, password, isAdmin } = req.body;

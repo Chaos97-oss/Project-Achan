@@ -8,8 +8,9 @@ const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 
-app.post('/api/signUp', signUp)
+app.post('/api/signUp', signUp);
 
+// app.post('/api/login')
 
 app.use(errorHandler);
 

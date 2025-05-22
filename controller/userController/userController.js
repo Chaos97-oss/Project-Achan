@@ -1,4 +1,5 @@
 import User from '../../models/user.js'
+import Booking from '../../models/booking.js';
 // Get all users with pagination
 export const getUsers = async (req, res) => {
   try {
@@ -30,10 +31,13 @@ export const getUser = async (req, res) => {
 
   try {
     const user = await User.findById(userId).populate({
-      path: "orders",
-      populate: { path: "products.product", select: "-__v" }, // deep populate
-      select: "-__v",
-    });
+      path: "bookings", 
+      populate: {
+      path: "service", // directly populate the referenced Service in each Booking
+      select: "-__v"
+  },
+  select: "-__v"
+});
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });

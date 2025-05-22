@@ -36,7 +36,14 @@ const userSchema = new mongoose.Schema({
   },
   passwordResetToken: String,
   passwordResetExpire: Date,
- },
+ bookings: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Booking",
+  }
+]
+},
+ 
   {
     timestamps: true, //Created & Updated would be recorded with this  
   } 

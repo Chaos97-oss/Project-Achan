@@ -1,9 +1,11 @@
-import signUp from "../../controller/authController/signUp";
-import login from "../../controller/authController/login";
-import router from "../userRoute/userRoutes";
+import express from 'express'
+import signUp from "../../controller/authController/signUp.js";
 
+import login from "../../controller/authController/login.js";
 
-app.post('/api/signUp', signUp);//general loign route
-app.post('/api/login', login);//general signup route
+const router = express.Router();
+
+router.post('/signup', signUp);//general loign route
+router.post('/login', login);//general signup route
 
 export default router;

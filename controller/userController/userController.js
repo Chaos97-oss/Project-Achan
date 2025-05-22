@@ -1,3 +1,4 @@
+import User from '../../models/user.js'
 // Get all users with pagination
 export const getUsers = async (req, res) => {
   try {

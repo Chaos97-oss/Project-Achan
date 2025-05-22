@@ -29,7 +29,7 @@ const login = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
-
+    // Send the token and user data in the response
     res.status(200).json({
       message: "Login successful",
       token,

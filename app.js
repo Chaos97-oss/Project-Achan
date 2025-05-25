@@ -4,6 +4,7 @@ import connectDB from './config/db.js';
 import errorHandler from './middleware/errorMiddelware.js';
 import authRoute from './routes/authRoute/authRoute.js';
 import userRoutes from './routes/userRoute/userRoutes.js';
+import bookingRoute from './routes/bookingRoute/bookingRoute.js'
 connectDB(); //database config
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/auth', authRoute)
-
+app.use('/api/v1/auth', bookingRoute)
 
 
 app.use(errorHandler);

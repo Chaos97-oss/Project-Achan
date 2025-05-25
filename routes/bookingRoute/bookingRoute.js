@@ -1,6 +1,6 @@
-import express from express
+import express from "express"
 import {protect, isAdmin} from "../../middleware/authMiddleware.js"
-import { createBooking, getAllBookings, getUserBookings, getBookingById, updateBooking, deleteBooking } from "../../controller/bookingController/bookingController";
+import { createBooking, getAllBookings, getUserBookings, getBookingById, updateBooking, deleteBooking } from "../../controller/bookingController/bookingController.js";
 const router = express.Router();
 router.post ("/", protect, createBooking);
 router.get ("/", protect, isAdmin, getAllBookings);
